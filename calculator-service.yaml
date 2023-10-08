@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: calculator
+  name: calculator-service
 spec:
-  type: LoadBalancer
   selector:
-    app: calculator
+    app: calculator   # Ensure this selector matches your Deployment's labels
   ports:
     - protocol: TCP
-      port: 8080
-      targetPort: 8080
+      port: 80
+      targetPort: 8080  # Target port where your application is running
+  type: LoadBalancer  # If you want to expose externally in Minikube
 
